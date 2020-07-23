@@ -4,7 +4,7 @@ import Directory from "../../components/detectory/Directory";
 const HomePage = () => {
   return (
     <div className="homepage">
-      <Directory/>
+      <Directory />
     </div>
   );
 };
