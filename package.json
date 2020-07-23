@@ -31,5 +31,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "eCommerce web",
+  "main": "index.js",
+  "repository": "https://github.com/hamdiasma/eCommerce.git",
+  "author": "hamdiasma <hamdi.babdelhafidh@gmail.com>",
+  "license": "MIT"
 }
