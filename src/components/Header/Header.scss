@@ -37,6 +37,9 @@
       display: inline;
       position: relative;
       cursor: pointer;
+      &.optopn-sign{
+        color: #0191d0;
+      }
       .user-img {
         width: 50px;
         position: absolute;

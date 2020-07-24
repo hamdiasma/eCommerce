@@ -22,11 +22,11 @@ const Header = ({ currentUser }) => {
           CONTACT
         </Link>
         {currentUser ? (
-          <div className="option" onClick={() => auth.signOut()}>
+          <div className="option optopn-sign" onClick={() => auth.signOut()}>
             SignOut <img className="user-img" src={currentUser.photoURL} alt=""/>
           </div>
         ) : (
-          <Link className="option" to="signin">
+          <Link className="option optopn-sign" to="signin">
             SignIn
           </Link>
         )}
