@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import FormInput from "../formInput/FormInput";
-import "./SignIn.scss"
+import "./SignIn.scss";
 import CustomButton from "../custoButton/CustomButton";
-
+import { signInWithGoogle } from "../../firebase/firebase";
 class SignIn extends Component {
   constructor(props) {
     super(props);
@@ -53,6 +53,7 @@ class SignIn extends Component {
             required
           />
           <CustomButton type="submit">SIGN IN</CustomButton>
+          <CustomButton onClick={signInWithGoogle}>SIGN IN WITH GOOGLE</CustomButton>
         </form>
       </div>
     );
