@@ -5,6 +5,7 @@ import { auth } from "../../firebase/firebase";
 import "./Header.scss";
 
 const Header = ({ currentUser }) => {
+  //photoURL
   return (
     <div className="header">
       <Link className="logo-container" to="/">
