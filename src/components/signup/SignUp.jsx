@@ -101,7 +101,7 @@ export class SignUp extends Component {
             label="password"
           />
           <FormInput
-            type="confirmPassword"
+            type="password"
             name="confirmPassword"
             value={confirmPassword}
             handelChange={this.handelChange}
