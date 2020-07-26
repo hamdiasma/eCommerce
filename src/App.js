@@ -5,7 +5,9 @@ import HomePage from "./pages/HomePage/HomePage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import Header from "./components/Header/Header";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-// photoURL: userAuth.photoURL,
+import { auth } from "./firebase/farbase";
+
+// photoURL: userAuth.photoURL,displayName
 class App extends React.Component {
   constructor() {
     super();
@@ -14,6 +16,17 @@ class App extends React.Component {
     };
   }
 
+  ucsubscrieFromAuth = null;
+  componentDidMount = () => {
+    this.ucsubscrieFromAuth = auth.onAuthStateChanged((user) => {
+      this.setState({ currentUser: user });
+      console.log(user);
+    });
+  };
+
+  componentWillUnmount = () => {
+    this.ucsubscrieFromAuth();
+  };
 
   render() {
     return (
