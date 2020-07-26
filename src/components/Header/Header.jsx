@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/ShopLogo.png";
 import "./Header.scss";
-
+import { auth } from "../../firebase/farbase";
 const Header = ({ currentUser }) => {
   //photoURL
   return (
@@ -22,12 +22,12 @@ const Header = ({ currentUser }) => {
           CONTACT
         </Link>
         {currentUser ? (
-          <div className="option optopn-sign">
+          <div className="option optopn-sign" onClick={() => auth.signOut()}>
             SignOut{" "}
             <img className="user-img" src={currentUser.photoURL} alt="" />
           </div>
         ) : (
-          <Link className="option optopn-sign" to="signin">
+          <Link className="option optopn-sign" to="/signin">
             SignIn
           </Link>
         )}
