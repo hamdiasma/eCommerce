@@ -99,12 +99,14 @@ export class SignUp extends Component {
             handelChange={this.handelChange}
             required
             label="password"
+            autoComplete="on"
           />
           <FormInput
             type="password"
             name="confirmPassword"
             value={confirmPassword}
             handelChange={this.handelChange}
+            autoComplete="on"
             required
             label="confirmPassword"
           />
