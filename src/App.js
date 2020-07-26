@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ShopPage from "./pages/ShopPage/ShopPage";
 import Header from "./components/Header/Header";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
-import { auth } from "./firebase/farbase";
+import { auth, createUserProfilrDocument } from "./firebase/farbase";
 
 // photoURL: userAuth.photoURL,displayName
 class App extends React.Component {
@@ -18,9 +18,22 @@ class App extends React.Component {
 
   ucsubscrieFromAuth = null;
   componentDidMount = () => {
-    this.ucsubscrieFromAuth = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
-      console.log(user);
+    this.ucsubscrieFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfilrDocument(userAuth);
+
+        userRef.onSnapshot((snapshot) => {
+          this.setState({
+            currentUser: {
+              id: snapshot.id,
+              ...snapshot.data(),
+            },
+          });
+        });
+      }
+      this.setState({
+        currentUser: userAuth,
+      });
     });
   };
 
@@ -29,7 +42,7 @@ class App extends React.Component {
   };
 
   render() {
-    const {currentUser}=this.state
+    const { currentUser } = this.state;
     return (
       <div className="App">
         <Header currentUser={currentUser} />

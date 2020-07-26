@@ -1,7 +1,7 @@
 import React from "react";
 import "./CollectioItem.scss";
 const CollectioItem = ({ id, name, price, imageUrl }) => {
-  console.log(imageUrl);
+  // console.log(imageUrl);
   return (
     <div className="collection-item">
       <div
