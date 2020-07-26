@@ -46,6 +46,7 @@ class SignIn extends Component {
           <FormInput
             type="password"
             name="password"
+            autoComplete="on"
             value={this.state.password}
             handelChange={this.handelChange}
             label="Password"
@@ -53,9 +54,7 @@ class SignIn extends Component {
           />
           <div className="buttons">
             <CustomButton type="submit">SIGN IN</CustomButton>
-            <CustomButton  isGoogleSignIn>
-              SIGN IN WITH GOOGLE
-            </CustomButton>
+            <CustomButton isGoogleSignIn>SIGN IN WITH GOOGLE</CustomButton>
           </div>
         </form>
       </div>
