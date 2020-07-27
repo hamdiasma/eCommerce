@@ -5,6 +5,8 @@ import "./Header.scss";
 import { auth } from "../../firebase/farbase";
 import { connect } from "react-redux";
 import CartIcon from "../cart-icon/CartIcon";
+import CartDropDown from "../carddropdown/CartDropDown";
+
 const Header = ({ currentUser }) => {
   //photoURL
   return (
@@ -34,6 +36,7 @@ const Header = ({ currentUser }) => {
         )}
         <CartIcon className="carticon" />
       </div>
+      <CartDropDown/>
     </div>
   );
 };
