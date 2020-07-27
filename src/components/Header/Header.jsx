@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/ShopLogo.png";
 import "./Header.scss";
 import { auth } from "../../firebase/farbase";
+import { connect } from "react-redux";
 const Header = ({ currentUser }) => {
   //photoURL
   return (
@@ -36,4 +37,8 @@ const Header = ({ currentUser }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
