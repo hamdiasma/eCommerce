@@ -4,6 +4,7 @@ import CustomButton from "../custoButton/CustomButton";
 import "./CartDropDown.scss";
 import { connect } from "react-redux";
 import CartItem from "../cartItem/CartItem";
+import { selectCartItems } from "../../redux/cart/cart.selectors";
 
 const CartDropDown = ({ cartItems }) => {
   return (
@@ -20,7 +21,7 @@ const CartDropDown = ({ cartItems }) => {
 
 const mapStateToProps = (state) => {
   return {
-    cartItems: state.cart.cartItems,
+    cartItems: selectCartItems(state),
   };
 };
 

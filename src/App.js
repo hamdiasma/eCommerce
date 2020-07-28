@@ -8,6 +8,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { auth, createUserProfilrDocument } from "./firebase/farbase";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/userActions";
+import { selectCurrentuser } from "./redux/user/user.selectors";
 
 // photoURL: userAuth.photoURL,displayName
 class App extends React.Component {
@@ -16,7 +17,6 @@ class App extends React.Component {
     this.ucsubscrieFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfilrDocument(userAuth);
-
         userRef.onSnapshot((snapshot) => {
           this.props.setCurrentUser({
             id: snapshot.id,
@@ -53,7 +53,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+  currentUser: selectCurrentuser(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({
