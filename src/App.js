@@ -9,6 +9,7 @@ import { auth, createUserProfilrDocument } from "./firebase/farbase";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/userActions";
 import { selectCurrentuser } from "./redux/user/user.selectors";
+import CheckoutPage from "./pages/checkoutPage/CheckoutPage";
 
 // photoURL: userAuth.photoURL,displayName
 class App extends React.Component {
@@ -39,7 +40,9 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
+          <Route exact path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
+
           <Route
             path="/signin"
             render={() =>
