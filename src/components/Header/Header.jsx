@@ -12,7 +12,8 @@ import { selectCurrentuser } from "../../redux/user/user.selectors";
 import CartDropDown from "../carddropdown/CartDropDown";
 
 const Header = ({ currentUser, hidden }) => {
-  //photoURL
+  console.log(currentUser);
+
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -31,7 +32,7 @@ const Header = ({ currentUser, hidden }) => {
         </Link>
         {currentUser ? (
           <div className="option option-sign" onClick={() => auth.signOut()}>
-            SignOut{" "}
+            SignOut
           </div>
         ) : (
           <Link className="option option-sign" to="/signin">
